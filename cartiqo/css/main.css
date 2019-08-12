@@ -1,0 +1,297 @@
+@font-face {
+  font-family: 'cartiqo';
+  src: url('../fonts/cartiqo.eot');
+  src: url('../fonts/cartiqo.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cartiqo.woff') format('woff'),
+    url('../fonts/cartiqo.ttf') format('truetype'),
+    url('../fonts/cartiqo.svg#cartiqo') format('svg');
+  font-weight: normal;
+  font-style: sans-serif;
+}
+/* colors */
+:root {
+  --wm-blue: #317581;
+  --wm-blue-active:#153238;
+  --wm-blue-hover: #15A4BD;
+  --wm-blue-visited:#317581;
+  --text: #0D2226;
+  --left: 20px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #fff;
+  font-family: 'Lato', sans-serif;
+  line-height: 22px;
+  font-size: 16px;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+body,
+html,
+div {
+  margin: 0px;
+}
+
+a {
+  color:var(--text);
+  fill:var(--wm-blue);
+  text-decoration: none;
+  outline:none !important;
+}
+a:hover {
+  fill: var(--wm-blue-hover) !important;
+  color: var(--wm-blue-hover);
+  text-decoration: underline;
+}
+a:visited {
+  color: var(--wm-blue-visited);
+  fill: var(--wm-blue);
+}
+a:active {
+  fill: var(--wm-blue-active);
+  color: var(--wm-blue-active);
+}
+#scroller {
+  position: absolute;
+  z-index: 1000;
+  width: 20px;
+  top:240px;
+  left:0px;
+  height:400px;
+  background:rgba(255,255,255,0.2);
+}
+.cartiqo {
+  font-family: 'cartiqo';
+  color: var(--wm-blue);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+.mapboxgl-map {
+
+    font: 12px/20px 'Lato', sans-serif;
+
+}
+.mapboxgl-ctrl-top-left  {
+  margin-top: 10px;
+}
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl {
+
+    margin: 10px 0 0 var(--left);
+
+
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath style='fill:%23ffffff;' d='M 10 6 C 9.446 6 9 6.4459904 9 7 L 9 9 L 7 9 C 6.446 9 6 9.446 6 10 C 6 10.554 6.446 11 7 11 L 9 11 L 9 13 C 9 13.55401 9.446 14 10 14 C 10.554 14 11 13.55401 11 13 L 11 11 L 13 11 C 13.554 11 14 10.554 14 10 C 14 9.446 13.554 9 13 9 L 11 9 L 11 7 C 11 6.4459904 10.554 6 10 6 z'/%3E %3C/svg%3E");
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath style='fill:%23ffffff;' d='m 7,9 c -0.554,0 -1,0.446 -1,1 0,0.554 0.446,1 1,1 l 6,0 c 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 z'/%3E %3C/svg%3E");
+}
+.mapboxgl-ctrl-group {
+  background: var(--wm-blue);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.4) !important;
+}
+.mapboxgl-ctrl-group > button + button {
+    border-top: none;
+}
+
+.mapboxgl-ctrl > button {
+  width: 25px;
+  height: 25px;
+}
+.mapboxgl-ctrl > button:hover {
+  background-color: var(--wm-blue-hover)
+}
+.mapboxgl-ctrl > button:active {
+  background-color: var(--wm-blue-active)
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+  margin: 2.5px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpolygon fill='%23ffffff' points='6,9 10,1 14,9'/%3E %3Cpolygon fill='%23CCCCCC' points='6,11 10,19 14,11 '/%3E %3C/svg%3E");
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact::after {
+
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill='%23317581' fill-rule='evenodd' d='M4,10a6,6 0 1,0 12,0a6,6 0 1,0 -12,0 M9,7a1,1 0 1,0 2,0a1,1 0 1,0 -2,0 M9,10a1,1 0 1,1 2,0l0,3a1,1 0 1,1 -2,0'/%3E %3C/svg%3E");
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    border-radius: 12px;
+
+}
+.mapboxgl-ctrl-attrib.mapboxgl-compact {
+  border-radius: 3px 3px 12px 3px;
+}
+
+/* black magic */
+:root {
+  --x: calc(100vw * 0.8);
+
+}
+.text {
+  width: calc(100vw - 90px);
+}
+@media (min-height: 650px) {
+  #scroller {
+    display:none;
+  }
+}
+@media (min-width: 600px) {
+  :root {
+    --x: calc(100vw * 0.781);
+    --left: 30px;
+  }
+}
+
+@media (min-width: 700px) {
+  :root {
+    --x: calc(100vw * 0.762);
+    --left: 40px;
+  }
+}
+
+@media (min-width: 800px) {
+  :root {
+    --x: calc(100vw * 0.743);
+    --left: 45px;
+  }
+
+}
+
+@media (min-width: 900px) {
+  :root {
+    --x: calc(100vw * 0.724)
+  }
+  .text {
+    width: calc(var(--footer) - 50px);
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --x: calc(100vw * 0.705)
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --x: calc(100vw * 0.686)
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --x: calc(100vw * 0.667)
+  }
+}
+
+:root {
+  --top: calc(var(--x) + 50.4px);
+  --bottom: calc(var(--x) - 202.3px);
+  --footer: calc(var(--bottom) - 42.2px);
+  --height: calc(100vh - 778px);
+  --rest: calc(var(--footer) - var(--height) / 3.271)
+}
+
+.head {
+  position: absolute;
+  width: 100vw;
+  height: 240px;
+}
+
+.side {
+  position: absolute;
+  background: #B8D5A9;
+  -webkit-clip-path: polygon(100% 0, var(--top) 0, var(--x) 100%, 100% 100%);
+  clip-path: polygon(100% 0, var(--top) 0, var(--x) 100%, 100% 100%);
+  z-index:-1;
+  width: 100vw;
+  height: 240px;
+}
+#tl-blur {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  background-image: url('../img/topo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  z-index:100000;
+}
+.topleft {
+
+  position: absolute;
+  background-color: #f2f2f2;
+  background-image: url('../img/topo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 100vh;
+  width: 100vw;
+}
+#tr-blur {
+  width: 100%;
+  height: 100%;
+  background-color: #474747;
+  background-image: url('../img/lijnen.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  z-index:100000;
+}
+.topright {
+
+  position: absolute;
+  background-color: #474747;
+  background-image: url('../img/lijnen.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 100vh;
+  width: 100vw;
+
+  -webkit-clip-path: polygon(100% 0, var(--x) 0, var(--bottom) 100%, 100% 100%);
+  clip-path: polygon(100% 0, var(--x) 0, var(--bottom) 100%, 100% 100%);
+  /*  rechtsboven, linksboven, linksonder, rechtsonder  */
+}
+
+.foot-text {
+  top: 640px;
+  position: absolute;
+  margin-left: var(--left);
+  padding-top: 49px;
+}
+
+
+.filler {
+  top: 640px;
+  position: absolute;
+  -webkit-clip-path: polygon(100% 0, var(--bottom) 0, var(--footer) 100%, 100% 100%);
+  clip-path: polygon(100% 0, var(--bottom) 0, var(--footer) 100%, 100% 100%);
+  float: right;
+  height: 138px;
+  width: 100vw;
+  background: #15A4BD;
+  z-index:-1;
+  overflow: hidden;
+}
+
+.footer-filler {
+  top: 778px;
+  position: absolute;
+  -webkit-clip-path: polygon(100% 0, var(--footer) 0, var(--rest) 100%, 100% 100%);
+  clip-path: polygon(100% 0, var(--footer) 0, var(--rest) 100%, 100% 100%);
+  float: right;
+  height: var(--height);
+  width: 100vw;
+  background: #15A4BD;
+  overflow: hidden;
+  z-index:-1;
+}

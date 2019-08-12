@@ -1,0 +1,325 @@
+@font-face {
+  font-family: 'cartiqo';
+  src: url('../fonts/cartiqo.eot');
+  src: url('../fonts/cartiqo.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/cartiqo.woff') format('woff'),
+    url('../fonts/cartiqo.ttf') format('truetype'),
+    url('../fonts/cartiqo.svg#cartiqo') format('svg');
+  font-weight: normal;
+  font-style: sans-serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #fff;
+  font-family: 'Lato', sans-serif;
+  line-height: 22px;
+  font-size: 16px;
+  color: #0D2226;
+  overflow-x: hidden;
+}
+body,
+html,
+div {
+  margin: 0px;
+}
+
+a {
+  color:#0D2226;
+  fill: #317581;
+  text-decoration: none;
+  outline:none !important;
+}
+a:hover {
+  fill: #15A4BD !important;
+  color: #15A4BD;
+  text-decoration: underline;
+}
+a:visited {
+  color: #317581;
+  fill:  #317581;
+}
+a:active {
+  fill:#153238;
+  color:#153238;
+}
+#logo-wrapper {
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+}
+#logo {
+  margin-left:45px;
+  margin-top: 40px;
+  color:  #317581;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 16px;
+  font-size: 10px;
+  width: 260px;
+}
+#social {
+  width: 100px;
+  margin-top:60px;
+  position: absolute;
+  right: 50px;
+}
+
+#slogan {
+  margin-left: 45px;
+  height: 100px;
+  max-width: 480px;
+  align-items: center;
+  display: flex;
+}
+.cartiqo {
+  font-family: 'cartiqo';
+  color: #317581;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+.mapboxgl-map {
+
+  font: 12px/20px 'Lato', sans-serif;
+
+}
+
+.mapboxgl-control-container{
+  width: 100vw;
+  position: absolute;
+  right: 0px;
+}
+
+.mapboxgl-ctrl-top-left  {
+margin-top: 10px;
+}
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl {
+
+  margin: 10px 0 0 45px;
+
+
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-in {
+background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath style='fill:%23ffffff;' d='M 10 6 C 9.446 6 9 6.4459904 9 7 L 9 9 L 7 9 C 6.446 9 6 9.446 6 10 C 6 10.554 6.446 11 7 11 L 9 11 L 9 13 C 9 13.55401 9.446 14 10 14 C 10.554 14 11 13.55401 11 13 L 11 11 L 13 11 C 13.554 11 14 10.554 14 10 C 14 9.446 13.554 9 13 9 L 11 9 L 11 7 C 11 6.4459904 10.554 6 10 6 z'/%3E %3C/svg%3E");
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-zoom-out {
+background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath style='fill:%23ffffff;' d='m 7,9 c -0.554,0 -1,0.446 -1,1 0,0.554 0.446,1 1,1 l 6,0 c 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 z'/%3E %3C/svg%3E");
+}
+.mapboxgl-ctrl-group {
+background: #317581;
+color: white;
+border: none;
+border-radius: 20px;
+box-shadow: 0 0 4px 1px rgba(0,0,0,0.4) !important;
+}
+.mapboxgl-ctrl-group > button + button {
+  border-top: none;
+}
+
+.mapboxgl-ctrl > button {
+width: 25px;
+height: 25px;
+}
+.mapboxgl-ctrl > button:hover {
+background-color: #15A4BD;
+}
+.mapboxgl-ctrl > button:active {
+background-color: #153238;
+}
+.mapboxgl-ctrl-icon.mapboxgl-ctrl-compass > .mapboxgl-ctrl-compass-arrow {
+margin: 2.5px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpolygon fill='%23ffffff' points='6,9 10,1 14,9'/%3E %3Cpolygon fill='%23CCCCCC' points='6,11 10,19 14,11 '/%3E %3C/svg%3E");
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact::after {
+
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill='%23317581' fill-rule='evenodd' d='M4,10a6,6 0 1,0 12,0a6,6 0 1,0 -12,0 M9,7a1,1 0 1,0 2,0a1,1 0 1,0 -2,0 M9,10a1,1 0 1,1 2,0l0,3a1,1 0 1,1 -2,0'/%3E %3C/svg%3E");
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border-radius: 12px;
+
+}
+
+
+/* black magic */
+
+
+.map {
+  position: absolute;
+  width: 600px;
+  top: 240px;
+  right: 0px;
+}
+.head {
+  position: absolute;
+  width: 100vw;
+  height: 240px;
+}
+
+.side {
+  position: absolute;
+  background: #B8D5A9;
+  transform: skew(-23deg);
+  z-index:-1;
+  width: 400px;
+  height: 240px;
+  right: -100px;
+}
+
+
+.skewer {
+  height: 400px;
+  overflow: hidden;
+  transform: skew(-23deg);
+  position: absolute;
+}
+.skewer-tl {
+  width: 800px;
+  right: 236px;
+}
+.skewer-tr {
+  width:636px;
+  right:-200px;
+}
+.topleft {
+  top:0px;
+  background-color: #f2f2f2;
+  background-image: url('../img/topo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 400px;
+  width: 800px;
+  transform: translate( 29%, 0%) skew(23deg);
+
+}
+
+.topright {
+  top: 0px;
+  background-color: #474747;
+  background-image: url('../img/lijnen.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 400px;
+  width: 800px;
+  transform: translate( -46%, 0%) skew(23deg);
+}
+
+.foot-text {
+  top: 640px;
+  position: absolute;
+  margin-left: 45px;
+  padding-top: 49px;
+}
+
+.filler {
+  top: 640px;
+  position: absolute;
+  transform: skew(-23deg);
+  right: -195px;
+  height: 400px;
+  width: 800px;
+  background: #15A4BD;
+  z-index:-1;
+  overflow: hidden;
+}
+
+.footer-filler {
+  background: none;
+}
+
+
+@media (min-width: 700px) {
+
+}
+
+@media (min-width: 800px) {
+
+ .map {
+   width: 800px;
+ }
+ .skewer-tl {
+    width: 1000px;
+    right: 236px;
+  }
+  .skewer-tr {
+    width:636px;
+    right:-200px;
+  }
+  .topleft {
+
+    width: 1000px;
+    transform: translate( 24%, 0%) skew(23deg);
+  }
+  .topright {
+
+    width: 1000px;
+    transform: translate( -56%, 0%) skew(23deg);
+  }
+}
+
+@media (min-width: 900px) {
+  #social {
+    right: 300px;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+
+ .map {
+   width: 1000px;
+ }
+ .skewer-tl {
+    width: 1200px;
+    right: 236px;
+  }
+  .skewer-tr {
+    width:636px;
+    right:-200px;
+  }
+  .topleft {
+
+    width: 1200px;
+    transform: translate( 20.5%, 0%) skew(23deg);
+  }
+  .topright {
+
+    width: 1200px;
+    transform: translate( -63.5%, 0%) skew(23deg);
+  }
+}
+
+@media (min-width: 1100px) {
+
+}
+
+@media (min-width: 1200px) {
+
+ .map {
+   width: 2000px;
+ }
+ .skewer-tl {
+    width: 2200px;
+    right: 236px;
+  }
+  .skewer-tr {
+    width:636px;
+    right:-200px;
+  }
+  .topleft {
+
+    width: 2200px;
+    transform: translate( 11%, 0%) skew(23deg);
+  }
+  .topright {
+
+    width: 2200px;
+    transform: translate( -80%, 0%) skew(23deg);
+  }
+}
