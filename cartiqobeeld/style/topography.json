@@ -1,0 +1,968 @@
+{
+  "version": 8,
+  "name": "3DNederland",
+  "glyphs": "https://ta.webmapper.nl/wm/glyphs/{fontstack}/{range}.pbf",
+  "sources": {
+      "cartiqo": {
+          "type": "vector",
+          "url": "https://ta.webmapper.nl/wm/styles/tile.json"
+      },
+      "3dbag": {
+          "type": "vector",
+          "tiles": [
+              "https://ta.webmapper.nl/wm/bag_3d/{z}/{x}/{y}",
+              "https://ta.webmapper.nl/wm/bag_3d/{z}/{x}/{y}",
+              "https://ta.webmapper.nl/wm/bag_3d/{z}/{x}/{y}"
+          ],
+          "minzoom": 8,
+          "maxzoom": 16
+      }
+  },
+  "light": {
+      "anchor": "viewport"
+  },
+  "layers": [
+      {
+          "id": "background",
+          "type": "background",
+          "paint": {
+              "background-color": "#333333"
+          }
+      },
+      {
+          "id": "water",
+          "type": "fill",
+          "source": "cartiqo",
+          "source-layer": "water",
+          "maxzoom": 18,
+          "minzoom": 8,
+          "paint": {
+              "fill-color": "#232323",
+              "fill-outline-color": "#232323"
+          }
+      },
+      {
+          "id": "water-shadow-inside",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "water",
+          "maxzoom": 22,
+          "minzoom": 6,
+          "filter": [
+              "!in",
+              "type",
+              "tidal_flat",
+              "sea"
+          ],
+          "layout": {
+              "line-cap": "butt",
+              "line-join": "miter"
+          },
+          "paint": {
+              "line-color": "#000000",
+              "line-width": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  2,
+                  16,
+                  12
+              ],
+              "line-blur": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  1,
+                  10,
+                  1.5,
+                  13,
+                  2,
+                  16,
+                  4
+              ],
+              "line-translate": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  9,
+                  [
+                      "literal",
+                      [
+                          0.5,
+                          0.5
+                      ]
+                  ],
+                  16,
+                  [
+                      "literal",
+                      [
+                          3.5,
+                          3.5
+                      ]
+                  ]
+              ],
+              "line-translate-anchor": "viewport",
+              "line-opacity": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.2
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  0.5,
+                  16,
+                  0.85
+              ]
+          }
+      },
+      {
+          "id": "water-outside-to-cover-inside-shadow",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "water",
+          "maxzoom": 18,
+          "minzoom": 11,
+          "layout": {
+              "visibility": "none",
+              "line-cap": "butt",
+              "line-join": "miter"
+          },
+          "paint": {
+              "line-color": "#333333",
+              "line-width": 13,
+              "line-offset": -6.5
+          }
+      },
+      {
+          "id": "water-line",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "water",
+          "maxzoom": 18,
+          "minzoom": 11,
+          "filter": [
+              "!in",
+              "type",
+              "tidal_flat",
+              "sea"
+          ],
+          "layout": {
+              "visibility": "visible",
+              "line-cap": "butt",
+              "line-join": "miter"
+          },
+          "paint": {
+              "line-color": "#474747",
+              "line-width": 1
+          }
+      },
+      {
+          "id": "land-1",
+          "source": "cartiqo",
+          "source-layer": "natural",
+          "type": "fill",
+          "paint": {
+              "fill-color": "#333333",
+              "fill-outline-color": "#333333"
+          }
+      },
+      {
+          "id": "land-2",
+          "source": "cartiqo",
+          "source-layer": "agricultural",
+          "type": "fill",
+          "paint": {
+              "fill-color": "#333333",
+              "fill-outline-color": "#333333"
+          }
+      },
+      {
+          "id": "land-3",
+          "source": "cartiqo",
+          "source-layer": "builtup",
+          "type": "fill",
+          "paint": {
+              "fill-color": "#333333",
+              "fill-outline-color": "#333333"
+          }
+      },
+      {
+          "id": "land-4",
+          "source": "cartiqo",
+          "source-layer": "infrastructure",
+          "type": "fill",
+          "paint": {
+              "fill-color": "#333333",
+              "fill-outline-color": "#333333"
+          }
+      },
+      {
+          "id": "roads_case",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "type": "line",
+          "layout": {
+              "line-cap": "round",
+              "line-join": "round"
+          },
+          "paint": {
+              "line-color": "#232323",
+              "line-width": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.2
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  8,
+                  [
+                      "match",
+                      [
+                          "get",
+                          "type"
+                      ],
+                      "highway",
+                      1.5,
+                      "motorway",
+                      1.5,
+                      "main",
+                      1.5,
+                      "secondary",
+                      1.5,
+                      "local",
+                      1.5,
+                      0.75
+                  ],
+                  18,
+                  [
+                      "match",
+                      [
+                          "get",
+                          "type"
+                      ],
+                      "highway",
+                      20,
+                      "motorway",
+                      18,
+                      "main",
+                      16,
+                      "secondary",
+                      12,
+                      "local",
+                      10,
+                      8
+                  ]
+              ],
+              "line-opacity": [
+                  "case",
+                  [
+                      "get",
+                      "tunnel"
+                  ],
+                  0.5,
+                  1
+              ]
+          }
+      },
+      {
+          "id": "roads_fill",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "type": "line",
+          "layout": {
+              "line-cap": "round",
+              "line-join": "round"
+          },
+          "paint": {
+              "line-color": "#474747",
+              "line-width": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.2
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  8,
+                  [
+                      "match",
+                      [
+                          "get",
+                          "type"
+                      ],
+                      "highway",
+                      2,
+                      "motorway",
+                      2,
+                      "main",
+                      2,
+                      "secondary",
+                      2,
+                      "local",
+                      2,
+                      1
+                  ],
+                  18,
+                  [
+                      "match",
+                      [
+                          "get",
+                          "type"
+                      ],
+                      "highway",
+                      16,
+                      "motorway",
+                      14,
+                      "main",
+                      12,
+                      "secondary",
+                      8,
+                      "local",
+                      6,
+                      6
+                  ]
+              ],
+              "line-opacity": [
+                  "case",
+                  [
+                      "get",
+                      "tunnel"
+                  ],
+                  0.5,
+                  1
+              ]
+          }
+      },
+      {
+          "id": "railway-shadow",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "railways",
+          "filter": [
+              "in",
+              "type",
+              "rail",
+              "tram",
+              "metro"
+          ],
+          "paint": {
+              "line-width": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  1,
+                  16,
+                  8
+              ],
+              "line-blur": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  0.5,
+                  16,
+                  4
+              ],
+              "line-translate": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.4
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  9,
+                  [
+                      "literal",
+                      [
+                          0.5,
+                          0.5
+                      ]
+                  ],
+                  16,
+                  [
+                      "literal",
+                      [
+                          3.5,
+                          3.5
+                      ]
+                  ]
+              ],
+              "line-translate-anchor": "viewport",
+              "line-opacity": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.2
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  6,
+                  0.5,
+                  16,
+                  0.85
+              ]
+          }
+      },
+      {
+          "id": "railway",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "railways",
+          "filter": [
+              "in",
+              "type",
+              "rail",
+              "tram",
+              "metro"
+          ],
+          "paint": {
+              "line-width": 1.5,
+              "line-color": "#939393 ",
+              "line-opacity": [
+                  "interpolate",
+                  [
+                      "linear"
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  11,
+                  [
+                      "case",
+                      [
+                          "get",
+                          "tunnel"
+                      ],
+                      0,
+                      0
+                  ],
+                  16,
+                  [
+                      "case",
+                      [
+                          "get",
+                          "tunnel"
+                      ],
+                      0.5,
+                      1
+                  ]
+              ]
+          }
+      },
+      {
+          "id": "railway-hatching",
+          "type": "line",
+          "source": "cartiqo",
+          "source-layer": "railways",
+          "filter": [
+              "in",
+              "type",
+              "rail",
+              "tram",
+              "metro"
+          ],
+          "paint": {
+              "line-color": "#939393",
+              "line-dasharray": [
+                  0.2,
+                  8
+              ],
+              "line-width": {
+                  "base": 1.4,
+                  "stops": [
+                      [
+                          14.5,
+                          0
+                      ],
+                      [
+                          15,
+                          3
+                      ],
+                      [
+                          20,
+                          8
+                      ]
+                  ]
+              },
+              "line-opacity": [
+                  "interpolate",
+                  [
+                      "linear"
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  11,
+                  [
+                      "case",
+                      [
+                          "get",
+                          "tunnel"
+                      ],
+                      0,
+                      0
+                  ],
+                  16,
+                  [
+                      "case",
+                      [
+                          "get",
+                          "tunnel"
+                      ],
+                      0.5,
+                      1
+                  ]
+              ]
+          }
+      },
+      {
+          "id": "path-names",
+          "type": "symbol",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "filter": [
+              "==",
+              [
+                  "get",
+                  "type"
+              ],
+              "path"
+          ],
+          "layout": {
+              "visibility": "visible",
+              "text-max-angle": 40,
+              "text-padding": 40,
+              "text-size": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  14,
+                  9,
+                  15,
+                  10,
+                  20,
+                  13
+              ],
+              "text-font": [
+                  "LatoSemi"
+              ],
+              "text-field": "{name}",
+              "symbol-placement": "line",
+              "text-rotation-alignment": "map"
+          },
+          "paint": {
+              "text-color": "#e0e0e0"
+          }
+      },
+      {
+          "id": "road-names",
+          "type": "symbol",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "filter": [
+              "!in",
+              "type",
+              "highway",
+              "path"
+          ],
+          "layout": {
+              "visibility": "visible",
+              "text-max-angle": 40,
+              "text-padding": 30,
+              "text-size": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  14,
+                  11,
+                  15,
+                  12,
+                  20,
+                  15
+              ],
+              "text-font": [
+                  "LatoSemi"
+              ],
+              "text-field": "{name}",
+              "symbol-placement": "line",
+              "text-rotation-alignment": "map"
+          },
+          "paint": {
+              "text-color": "#e0e0e0"
+          }
+      },
+      {
+          "id": "N-road",
+          "type": "symbol",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "filter": [
+              "==",
+              [
+                  "get",
+                  "type"
+              ],
+              "motorway"
+          ],
+          "layout": {
+              "visibility": "visible",
+              "text-max-angle": 30,
+              "text-padding": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  8,
+                  40,
+                  10,
+                  100,
+                  14,
+                  150,
+                  20,
+                  250
+              ],
+              "text-size": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  14,
+                  12,
+                  15,
+                  14,
+                  20,
+                  16
+              ],
+              "text-font": [
+                  "LatoSemi"
+              ],
+              "text-field": "{road_number}",
+              "symbol-placement": "line",
+              "text-rotation-alignment": "viewport"
+          },
+          "paint": {
+              "text-color": "#e0e0e0"
+          }
+      },
+      {
+          "id": "A-road",
+          "type": "symbol",
+          "source": "cartiqo",
+          "source-layer": "roads",
+          "filter": [
+              "==",
+              [
+                  "get",
+                  "type"
+              ],
+              "highway"
+          ],
+          "layout": {
+              "visibility": "visible",
+              "text-max-angle": 30,
+              "text-padding": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  7,
+                  50,
+                  8,
+                  50,
+                  10,
+                  100,
+                  14,
+                  150,
+                  20,
+                  200
+              ],
+              "text-size": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      1.1
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  14,
+                  14,
+                  15,
+                  16,
+                  20,
+                  18
+              ],
+              "text-font": [
+                  "Lato"
+              ],
+              "text-field": "{road_number}",
+              "symbol-placement": "line",
+              "text-rotation-alignment": "viewport"
+          },
+          "paint": {
+              "text-halo-blur": 0,
+              "text-color": "#2f2822",
+              "text-halo-width": 10,
+              "text-halo-color": "#f2f2f2"
+          }
+      },
+      {
+          "id": "3D-BAG",
+          "type": "fill-extrusion",
+          "source": "3dbag",
+          "source-layer": "gebouwen3d",
+          "maxzoom": 20,
+          "minzoom": 6,
+          "paint": {
+              "fill-extrusion-color": [
+                  "interpolate",
+                  [
+                      "cubic-bezier",
+                      0.8,
+                      0.3,
+                      0.3,
+                      0.8
+                  ],
+                  [
+                      "number",
+                      [
+                          "get",
+                          "height_75"
+                      ]
+                  ],
+                  0,
+                  "#808080",
+                  0.1,
+                  "#ffffd9",
+                  3,
+                  "#edf8b1",
+                  6,
+                  "#c7e9b4",
+                  9,
+                  "#7fcdbb",
+                  12,
+                  "#41b6c4",
+                  15,
+                  "#1d91c0",
+                  20,
+                  "#225ea8",
+                  40,
+                  "#253494",
+                  60,
+                  "#081d58"
+              ],
+              "fill-extrusion-height": [
+                  "interpolate",
+                  [
+                      "linear"
+                  ],
+                  [
+                      "zoom"
+                  ],
+                  8,
+                  0,
+                  12.5,
+                  0,
+                  14,
+                  [
+                      "*",
+                      1,
+                      [
+                          "to-number",
+                          [
+                              "get",
+                              "height_99"
+                          ]
+                      ]
+                  ],
+                  16,
+                  [
+                      "*",
+                      1.4,
+                      [
+                          "to-number",
+                          [
+                              "get",
+                              "height_99"
+                          ]
+                      ]
+                  ],
+                  20,
+                  [
+                      "*",
+                      1.2,
+                      [
+                          "to-number",
+                          [
+                              "get",
+                              "height_99"
+                          ]
+                      ]
+                  ]
+              ],
+              "fill-extrusion-opacity": 0.6
+          }
+      },
+      {
+          "id": "place-labels",
+          "type": "symbol",
+          "source": "cartiqo",
+          "source-layer": "labels",
+          "filter": [
+              "all",
+              [
+                  "==",
+                  "type",
+                  "place"
+              ],
+              [
+                  "!=",
+                  "subtype",
+                  "urban_district"
+              ]
+          ],
+          "minzoom": 8,
+          "maxzoom": 16,
+          "layout": {
+              "visibility": "visible",
+              "text-allow-overlap": false,
+              "text-padding": 1,
+              "text-size": [
+                  "interpolate",
+                  [
+                      "exponential",
+                      0.8
+                  ],
+                  [
+                      "get",
+                      "hierarchy"
+                  ],
+                  1,
+                  28,
+                  10,
+                  12
+              ],
+              "text-font": [
+                  "case",
+                  [
+                      ">=",
+                      [
+                          "get",
+                          "hierarchy"
+                      ],
+                      6
+                  ],
+                  [
+                      "literal",
+                      [
+                          "Lato"
+                      ]
+                  ],
+                  [
+                      "<",
+                      [
+                          "get",
+                          "hierarchy"
+                      ],
+                      6
+                  ],
+                  [
+                      "literal",
+                      [
+                          "LatoSemi"
+                      ]
+                  ],
+                  [
+                      "literal",
+                      [
+                          "LatoSemi"
+                      ]
+                  ]
+              ],
+              "text-field": "{name}",
+              "symbol-placement": "point",
+              "text-rotation-alignment": "viewport"
+          },
+          "paint": {
+              "text-opacity": 1,
+              "text-color": [
+                  "match",
+                  [
+                      "get",
+                      "subtype"
+                  ],
+                  "urban_district",
+                  "#f3f3f3",
+                  "#ffffff"
+              ],
+              "text-halo-color": "#333333",
+              "text-halo-width": 2,
+              "text-halo-blur": 1
+          }
+      }
+  ],
+  "created": "2018-03-06",
+  "id": "buildings",
+  "modified": "2019-03-12",
+  "owner": "Webmapper",
+  "draft": false
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sl-bag-extract:bagStand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sl="http://www.kadaster.nl/schemas/standlevering-generiek/1.0"
+	xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20180601"
+	xmlns:sl-bag-extract="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20180601"
+	xmlns:objects="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20180601"
+	xmlns:DatatypenNEN3610="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20180601"
+	xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20180601"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20180601"
+	xsi:schemaLocation="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20180601 ../../../../../xsd/lvbag/extract-deelbestand-lvc/v20180601/BagvsExtractDeelbestandExtractLvc-2.0.xsd">
+	<sl-bag-extract:bagInfo>
+		<selecties-extract:Gebied-Registratief>
+			<selecties-extract:Gebied-GEM>
+				<selecties-extract:GemeenteCollectie>
+					<selecties-extract:Gemeente>
+						<selecties-extract:GemeenteIdentificatie>5000</selecties-extract:GemeenteIdentificatie>
+					</selecties-extract:Gemeente>
+				</selecties-extract:GemeenteCollectie>
+			</selecties-extract:Gebied-GEM>
+		</selecties-extract:Gebied-Registratief>
+		<selecties-extract:LVC-Extract>
+			<selecties-extract:productinhoud>gemeente levenscyclus extract</selecties-extract:productinhoud>
+			<selecties-extract:StandTechnischeDatum>2018-10-01</selecties-extract:StandTechnischeDatum>
+		</selecties-extract:LVC-Extract>
+	</sl-bag-extract:bagInfo>
+	<sl:standBestand>
+		<sl:dataset>LVBAG</sl:dataset>
+		<sl:inhoud>
+			<sl:gebied>GEMEENTE</sl:gebied>
+			<sl:leveringsId>0000000001</sl:leveringsId>
+			<sl:objectTypen>
+				<sl:objectType>NUM</sl:objectType>
+			</sl:objectTypen>
+		</sl:inhoud>
+		<sl:stand>
+			<sl-bag-extract:bagObject>
+				<objects:Nummeraanduiding>
+					<objects:identificatie>
+						<DatatypenNEN3610:namespace>NL.IMBAG.Nummeraanduiding</DatatypenNEN3610:namespace>
+						<DatatypenNEN3610:lokaalID>5000200000012829</DatatypenNEN3610:lokaalID>
+					</objects:identificatie>
+					<objects:huisnummer>98</objects:huisnummer>
+					<objects:postcode>1945BM</objects:postcode>
+					<objects:typeAdresseerbaarObject>Verblijfsobject</objects:typeAdresseerbaarObject>
+					<objects:status>Naamgeving uitgegeven</objects:status>
+					<objects:geconstateerd>N</objects:geconstateerd>
+					<objects:documentdatum>1917-03-01</objects:documentdatum>
+					<objects:documentnummer>2017GHF2</objects:documentnummer>
+					<objects:voorkomen>
+						<Historie:Voorkomen>
+							<Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+							<Historie:beginGeldigheid>1917-03-01</Historie:beginGeldigheid>
+							<Historie:tijdstipRegistratie>1917-03-01T10:12:15.000</Historie:tijdstipRegistratie>
+							<Historie:BeschikbaarLV>
+								<Historie:tijdstipRegistratieLV>2017-03-01T11:12:15.000</Historie:tijdstipRegistratieLV>
+								<Historie:tijdstipNietBagLV>2017-07-01T12:00:00.000</Historie:tijdstipNietBagLV>
+							</Historie:BeschikbaarLV>
+						</Historie:Voorkomen>
+					</objects:voorkomen>
+					<objects:ligtAan>
+						<Objecten-ref:OpenbareRuimteRef xlink:href="NL.IMBAG.OPENBARERUIMTE.5000200000012500"/>
+					</objects:ligtAan>
+					</objects:Nummeraanduiding>
+			</sl-bag-extract:bagObject>
+		</sl:stand>
+	</sl:standBestand>
+</sl-bag-extract:bagStand>

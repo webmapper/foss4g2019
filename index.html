@@ -31,7 +31,7 @@
 <body>
   <div class="reveal">
     <div class="slides">
-      <section data-background-interactive data-background-iframe="./cartiqo/">
+      <section data-background-iframe="./cartiqo/">
         <h1>Building a national vector tile set</h1>
         <br />
         <h2>by: Steven Ottens - <a href="//twitter.com/stvno" style="font-weight: normal; color: #333333"> @stvno</a>
@@ -66,6 +66,9 @@
           <p class="fragment slide">1:10 0000</p>
           <p class="fragment slide">large scale topography</p>
         </section>
+        <section data-background-image="img/data.png">
+          <h1 class="fragment fade" style="color: #eeeeec; text-shadow: 2px 2px 4px #333333; ">Lots of Data</h1>
+        </section>
         <section data-transition="fade-out">
           <h3>Pop quiz:</h3>
           <p class="fragment slide">Feature type: "barren terrain"</p>
@@ -77,12 +80,124 @@
           <h3>Pop quiz:</h3>
           <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Feature type: "barren terrain"</p>
           <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Physical appearance: "open pavement"</p>
-          <p class="fragment slide" style="color:#eeeeec; text-shadow: 2px 2px 4px #333333; font-style: italic">Hardening formed by
-              related elements of <b>limited</b> dimensions, such as, for example, clinkers and tiles.
+          <p class="fragment slide" style="color:#eeeeec; text-shadow: 2px 2px 4px #333333; font-style: italic">
+            Hardening formed by
+            related elements of <b>limited</b> dimensions, such as, for example, clinkers and tiles.
         </section>
-        <section data-background-iframe="https://data.amsterdam.nl/data/?modus=kaart"></section>
+
+        <section data-background-iframe="https://data.amsterdam.nl/data/?modus=kaart">
+          <h1 style="color: #41382f; text-shadow: 2px 2px 4px #eeeeec; opacity:0.9;">Beautiful maps</h1>
+        </section>
         <section data-background-iframe="bgt/bgt.map"></section>
       </section>
+      <section>
+        <section data-background-iframe="./cartiqobeeld/">
+          <div style="font-family: 'cartiqo'; font-size: 100px; color: #eeeeec">cartiqo</div>
+        </section>
+        <section data-background-iframe="./cartiqobeeld/">
+          <p style=" font-size: 50px; color: #eeeeec">Consistent</p>
+          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Accurate</p>
+          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Simple</p>
+          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Fast</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Consistent</h3>
+          <img class="fragment fade" width="200px" data-src="img/nature5.png" /><img class="fragment fade" width="200px"
+            data-src="img/nature11.png" /><img class="fragment fade" width="200px" data-src="img/nature16.png" />
+          <p class="fragment fade">across zoom levels</p>
+          <p class="fragment fade">across source data</p>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <h3>Create a datamodel</h3>
+          <img style="height:50vh" data-src="img/cartiqo_schema.png" /><br />
+          <a href="https://github.com/webmapper/cartiqo-documentation">github.com/webmapper/cartiqo-documentation</a>
+        </section>
+        <section data-transition="fade-in slide-out">
+          <h3>Create a datamodel</h3>
+          <img style="height:50vh" data-src="img/openzoomstack.png" /><br />
+          <a href="https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-zoomstack.html">Open
+            Zoomstack - Ordnance Survey</a>
+        </section>
+        <section>
+          <h3>Map your source data</h3>
+          <pre><code data-trim data-noescape>
+              ----------NATURAL--------------------
+              --high
+              INSERT INTO cartiqo.natural_5_6_uo (type,  geom, originalId)
+              select 'high', st_multi(geometrie_vlak_3857), gml_id
+              from top1000.terrein where typelandgebruik = 'bos';
+
+              --bare
+              INSERT INTO cartiqo.natural_5_6_uo (type,  geom, originalId)
+              select 'bare', st_multi(geometrie_vlak_3857), gml_id
+              from top1000.terrein where typelandgebruik = 'zand';
+            </code></pre>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> SQL is
+            your friend <b>⁂</b></span>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Accurate</h3>
+          <div style="margin-left: -20vw;width: 90vw;"><img class="fragment fade" width="350px"
+              data-src="img/accurate1.png" /><img class="fragment fade" width="350px"
+              data-src="img/accurate3.png" /><img class="fragment fade" width="350px" data-src="img/accurate4.png" />*
+          </div>
+          <p class="fragment fade">authorative </p>
+          <p class="fragment fade">up to date</p>
+          <p class="fragment fade" style="text-align: end;"><a
+              style="font-style: italic; color: #317581; font-size: smaller"
+              href="https://ogleearth.com/2010/11/about-costa-rica-nicaragua-their-border-and-google/">* ogle earth</a>
+          </p>
+        </section>
+        <section>
+          <h3>Paper trail</h3>
+          <img class="fragment fade" height="300px" data-src="img/paper1.png" /><img class="fragment fade"
+            height="300px" data-src="img/paper2.png" />
+            <p class="fragment fade">Include original IDs</p>
+            <p class="fragment fade">Document your sources</p>
+
+        </section>
+        <section>
+          <h3>Automate</h3>
+          <img height="250px" data-src="img/automate.gif" />
+          <pre class="fragment fade"><code data-trim data-noescape>
+            if [ $theirdate -gt $ourdate ]; then
+              # there is a newer file on the server, lets run the scripts
+              ./run.sh $url $theirs
+            else
+              echo "No newer version of "$file"; currently at "$theirs
+            fi
+           </code></pre>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Bash is
+            your friend <b>⁂</b></span>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Simple</h3>
+          <div style="display: flex">
+         <div > <img data-src="img/simple.gif" /></div>
+         <div style="display: flex;flex-direction: column;justify-content: center; text-align: left " >
+          <p class="fragment fade">to use</p>
+          <p class="fragment fade">to create</p>
+          <p class="fragment fade">to maintain</p>
+        </div>
+      </div>
+        </section>
+        <section>
+          <h3>PostGIS</h3>
+            <p class="fragment fade">11 different sources</p>
+            <p class="fragment fade" style="text-decoration: line-through ">tippecanoe</p>
+        </section>
+
+      </section>
+      <section>
+        Fast
+      </section>
+
     </div>
   </div>
 
