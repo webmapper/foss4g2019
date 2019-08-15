@@ -67,23 +67,9 @@
           <p class="fragment slide">large scale topography</p>
         </section>
         <section data-background-image="img/data.png">
-          <h1 class="fragment fade" style="color: #eeeeec; text-shadow: 2px 2px 4px #333333; ">Lots of Data</h1>
+          <h1 style="color: #eeeeec; text-shadow: 2px 2px 4px #333333; ">Lots of Data</h1>
         </section>
-        <section data-transition="fade-out">
-          <h3>Pop quiz:</h3>
-          <p class="fragment slide">Feature type: "barren terrain"</p>
-          <p class="fragment slide">Physical appearance: "open pavement"</p>
-          <p style="opacity:0">Hardening formed by related elements of <b>limited</b> dimensions, such as, for example,
-            clinkers and tiles.
-        </section>
-        <section data-transition="fade" data-background-image="img/straat.jpeg">
-          <h3>Pop quiz:</h3>
-          <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Feature type: "barren terrain"</p>
-          <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Physical appearance: "open pavement"</p>
-          <p class="fragment slide" style="color:#eeeeec; text-shadow: 2px 2px 4px #333333; font-style: italic">
-            Hardening formed by
-            related elements of <b>limited</b> dimensions, such as, for example, clinkers and tiles.
-        </section>
+
 
         <section data-background-iframe="https://data.amsterdam.nl/data/?modus=kaart">
           <h1 style="color: #41382f; text-shadow: 2px 2px 4px #eeeeec; opacity:0.9;">Beautiful maps</h1>
@@ -156,8 +142,8 @@
           <h3>Paper trail</h3>
           <img class="fragment fade" height="300px" data-src="img/paper1.png" /><img class="fragment fade"
             height="300px" data-src="img/paper2.png" />
-            <p class="fragment fade">Include original IDs</p>
-            <p class="fragment fade">Document your sources</p>
+          <p class="fragment fade">Include original IDs</p>
+          <p class="fragment fade">Document your sources</p>
 
         </section>
         <section>
@@ -179,25 +165,111 @@
         <section>
           <h3>Simple</h3>
           <div style="display: flex">
-         <div > <img data-src="img/simple.gif" /></div>
-         <div style="display: flex;flex-direction: column;justify-content: center; text-align: left " >
-          <p class="fragment fade">to use</p>
-          <p class="fragment fade">to create</p>
-          <p class="fragment fade">to maintain</p>
-        </div>
-      </div>
+            <div> <img data-src="img/simple.gif" /></div>
+            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
+              <p class="fragment fade">to use</p>
+              <p class="fragment fade">to create</p>
+              <p class="fragment fade">to maintain</p>
+            </div>
+          </div>
         </section>
         <section>
-          <h3>PostGIS</h3>
-            <p class="fragment fade">11 different sources</p>
-            <p class="fragment fade" style="text-decoration: line-through ">tippecanoe</p>
+          <h3>Data wrangling</h3>
+          <div style="display: flex">
+            <div> <img height="250px" data-src="img/datawrangling.gif" /></div>
+            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
+              <p class="fragment fade">11 different sources</p>
+              <p class="fragment fade">different datamodels</p>
+              <p class="fragment fade">different update frequencies</p>
+            </div>
+          </div>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> PostGIS
+            is
+            your friend <b>⁂</b></span>
+          <p class="fragment fade" style="text-decoration: line-through "><a
+              href="https://github.com/mapbox/tippecanoe">tippecanoe</a></p>
+          <p class="fragment fade" style="text-decoration: line-through "><a
+              href="https://openmaptiles.org/osm2vectortiles/">osm2vectortiles</a></p>
+        </section>
+        <section>
+          <h3>Tile management</h3>
+          <div style="display: flex">
+            <div><img height="450px" data-src="img/updates.gif" /> </div>
+            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
+              <p class="fragment fade">easy configuration</p>
+              <p class="fragment fade">(re)seeding options</p>
+              <p class="fragment fade">S3 backend</p>
+
+              <p class="fragment fade" style="text-decoration: line-through "><a
+                  href="https://github.com/mapbox/tilelive">tilelive</a></p>
+              <p class="fragment fade"><a style="text-decoration: line-through "
+                  href="https://docs.geoserver.org/latest/en/user/extensions/vectortiles/tutorial.html">geoserver</a>
+                <a style="text-decoration: line-through " href="https://t-rex.tileserver.ch/">t-rex</a></p>
+            </div>
+          </div>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Tegola
+            is your friend <b>⁂</b></span>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Fast</h3>
+          <div style="display: flex">
+            <div><img height="450px" data-src="img/fast.gif" /> </div>
+            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
+              <p class="fragment fade">to create</p>
+              <p class="fragment fade">to deliver</p>
+              <p class="fragment fade">to render</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Order your data</h3>
+          <pre class="fragment fade"><code data-trim data-noescape>
+                  CREATE TABLE cartiqo.natural_5_6 AS
+                    SELECT * FROM cartiqo.natural_5_6_uo
+                      ORDER BY ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10)
+                      COLLATE "C";
+
+                  CREATE INDEX cartiqo_natural_5_6_geohash
+                    ON cartiqo.natural_5_6
+                    (ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10));
+
+                  CLUSTER cartiqo.natural_5_6 USING cartiqo_natural_5_6_geohash;
+
+                  CREATE INDEX cartiqo_natural_5_6_geom
+                      ON cartiqo.natural_5_6 USING gist (geom);
+                 </code></pre>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> <A
+              href="http://www.paulnorman.ca/blog/2016/05/improve-your-st-geohash-sorting-with-these-three-simple-tricks/">Paul
+              Norman</A> is your friend <b>⁂</b></span>
+        </section>
+        <section>
+          <h3>Enable web speed</h3>
+          <p class="fragment fade">gzip encoding</p>
+          <p class="fragment fade">cache-headers</p>
+          <p class="fragment fade">multiple subdomains</p>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> CDN is your friend <b>⁂</b></span>
+          <div ><img height="250px" class="fade fragment" data-src="img/headers.png"/><img class="fade fragment" height="250px" data-src="img/timing.png"/></div>
         </section>
 
       </section>
-      <section>
-        Fast
-      </section>
 
+      <section data-transition="fade-out">
+        <h3>Pop quiz:</h3>
+        <p class="fragment slide">Feature type: "barren terrain"</p>
+        <p class="fragment slide">Physical appearance: "open pavement"</p>
+        <p style="opacity:0">Hardening formed by related elements of <b>limited</b> dimensions, such as, for example,
+          clinkers and tiles.
+      </section>
+      <section data-transition="fade" data-background-image="img/straat.jpeg">
+        <h3>Pop quiz:</h3>
+        <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Feature type: "barren terrain"</p>
+        <p style="color:#eeeeec; text-shadow: 2px 2px 4px #333333">Physical appearance: "open pavement"</p>
+        <p class="fragment slide" style="color:#eeeeec; text-shadow: 2px 2px 4px #333333; font-style: italic">
+          Hardening formed by
+          related elements of <b>limited</b> dimensions, such as, for example, clinkers and tiles.
+      </section>
     </div>
   </div>
 
