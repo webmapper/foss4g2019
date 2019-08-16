@@ -76,38 +76,85 @@
         </section>
         <section data-background-iframe="bgt/bgt.map"></section>
       </section>
-      <section>
-        <section data-background-iframe="./cartiqobeeld/">
-          <div style="font-family: 'cartiqo'; font-size: 100px; color: #eeeeec">cartiqo</div>
-        </section>
-        <section data-background-iframe="./cartiqobeeld/">
-          <p style=" font-size: 50px; color: #eeeeec">Consistent</p>
-          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Accurate</p>
-          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Simple</p>
-          <p class="fragment slide-up" style=" font-size: 50px; color: #eeeeec">Fast</p>
-        </section>
+
+      <section data-background-iframe="./cartiqobeeld/">
+        <div style="display: flex; align-items: center">
+          <div style="font-family: 'cartiqo'; font-size: 100px; color: #eeeeec; min-width:70%">cartiqo</div>
+
+          <div>
+            <p class="fragment" style=" font-size: 50px; color: #eeeeec">Fast</p>
+            <p class="fragment " style=" font-size: 50px; color: #eeeeec">Simple</p>
+            <p class="fragment " style=" font-size: 50px; color: #eeeeec">Accurate</p>
+            <p class="fragment " style=" font-size: 50px; color: #eeeeec">Consistent</p>
+          </div>
+        </div>
+
       </section>
       <section>
-        <section>
-          <h3>Consistent</h3>
-          <img class="fragment fade" width="200px" data-src="img/nature5.png" /><img class="fragment fade" width="200px"
-            data-src="img/nature11.png" /><img class="fragment fade" width="200px" data-src="img/nature16.png" />
+        <section data-background-image="img/6colors.gif">
+          <div>
+            <h3>Six Color Map</h3>
+          </div>
+          <div class=" fragment " style="text-align:left;text-shadow: 1px 1px 4px #eeeeec"">
+         <p >water</p>
+         <p >natural</p>
+         <p >rural</p>
+         <p >urban</p>
+         <p >roads</p>
+         <p >labels</p>
+      </div>
+      </section>
+      <section>
+          <h3>Consistency</h3>
+          <img class=" fragment fade" width="200px" data-src="img/nature5.png" /><img class="fragment fade"
+            width="200px" data-src="img/nature11.png" /><img class="fragment fade" width="200px"
+            data-src="img/nature16.png" />
           <p class="fragment fade">across zoom levels</p>
           <p class="fragment fade">across source data</p>
         </section>
         <section data-transition="slide-in fade-out">
-          <h3>Create a datamodel</h3>
-          <img style="height:50vh" data-src="img/cartiqo_schema.png" /><br />
+          <h3> 11³ </h3>
+          <img style="max-height:600px; margin-top:-60px" data-src="img/cartiqo.png" />
+        </section>
+
+        <section data-transition="fade-in slide-out">
+          <h3> 11³ </h3>
+          <img style="max-height:600px; margin-top:-60px" data-src="img/cartiqo-builtup.png" />
+        </section>
+        <section data-background-image="img/kaart.png" data-transition="slide-in fade-out">
+          <h3><span style="opacity:0">Lots of </span>Beautiful maps</h3>
+        </section>
+        <section data-background-image="img/kaarten.png" data-transition="fade-in fade-out">
+          <h3>Lots of Beautiful maps</h3>
+        </section>
+        <section data-background-image="img/less.png" data-transition="fade-in fade-out">
+          <div
+            style="display: flex;justify-content: space-around;align-items: center; color: #eeeeec; font-size: 60px;">
+            <div>rendering<br />maps</div>
+            <div style="display: flex;justify-content:space-between;align-items: center" class="fragment">
+              <span style="margin-right:20px;">&gt;</span>
+              <div>generating<br />tiles</div>
+            </div>
+            <div style="display: flex;justify-content:space-between;align-items: center" class="fragment">
+              <span style="margin-right:20px;">&gt;</span>
+              <div>importing<br />data</div>
+            </div>
+
+          </div>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <h3>Simple datamodel</h3>
+          <img style="height:40vh" data-src="img/cartiqo_schema.png" /><br />
           <a href="https://github.com/webmapper/cartiqo-documentation">github.com/webmapper/cartiqo-documentation</a>
         </section>
         <section data-transition="fade-in slide-out">
-          <h3>Create a datamodel</h3>
-          <img style="height:50vh" data-src="img/openzoomstack.png" /><br />
+          <h3>Simple datamodel</h3>
+          <img style="height:40vh" data-src="img/openzoomstack.png" /><br />
           <a href="https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-zoomstack.html">Open
             Zoomstack - Ordnance Survey</a>
         </section>
         <section>
-          <h3>Map your source data</h3>
+          <h3>Map the source data</h3>
           <pre><code data-trim data-noescape>
               ----------NATURAL--------------------
               --high
@@ -120,36 +167,58 @@
               select 'bare', st_multi(geometrie_vlak_3857), gml_id
               from top1000.terrein where typelandgebruik = 'zand';
             </code></pre>
+          <p class="fragment fade">flatten your data</p>
+          <p class="fragment fade">storage is cheap!</p>
           <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> SQL is
             your friend <b>⁂</b></span>
         </section>
+        <section data-background-image="img/hard.gif">
+        </section>
       </section>
       <section>
-        <section>
-          <h3>Accurate</h3>
-          <div style="margin-left: -20vw;width: 90vw;"><img class="fragment fade" width="350px"
-              data-src="img/accurate1.png" /><img class="fragment fade" width="350px"
-              data-src="img/accurate3.png" /><img class="fragment fade" width="350px" data-src="img/accurate4.png" />*
+        <section data-background-image="img/not quite.gif">
+          <p class="fragment" style="font-size: 60px; color: #eeeeec;font-weight: 100">not quite</p>
+        </section>
+        <section data-background-image="img/update.jpg" style="font-size: 60px; color: #eeeeec;text-shadow: 1px 1px 4px #333333; font-weight: bold">
+          <div style="display: flex; justify-content: center;align-items: center">
+          <div style="text-align: right">
+         <div class=""> generating</div>
+          <div class="fragment">serving</div>
+          <div class="fragment">updating</div>
           </div>
-          <p class="fragment fade">authorative </p>
-          <p class="fragment fade">up to date</p>
-          <p class="fragment fade" style="text-align: end;"><a
-              style="font-style: italic; color: #317581; font-size: smaller"
-              href="https://ogleearth.com/2010/11/about-costa-rica-nicaragua-their-border-and-google/">* ogle earth</a>
-          </p>
+          </div>
         </section>
         <section>
-          <h3>Paper trail</h3>
-          <img class="fragment fade" height="300px" data-src="img/paper1.png" /><img class="fragment fade"
-            height="300px" data-src="img/paper2.png" />
-          <p class="fragment fade">Include original IDs</p>
-          <p class="fragment fade">Document your sources</p>
+          Tegola
+        </section>
+      </section>
 
-        </section>
-        <section>
-          <h3>Automate</h3>
-          <img height="250px" data-src="img/automate.gif" />
-          <pre class="fragment fade"><code data-trim data-noescape>
+
+      <section>
+        <h3>Accurate</h3>
+        <div style="margin-left: -20vw;width: 90vw;"><img class="fragment fade" width="350px"
+            data-src="img/accurate1.png" /><img class="fragment fade" width="350px" data-src="img/accurate3.png" /><img
+            class="fragment fade" width="350px" data-src="img/accurate4.png" />*
+        </div>
+        <p class="fragment fade">authorative </p>
+        <p class="fragment fade">up to date</p>
+        <p class="fragment fade" style="text-align: end;"><a
+            style="font-style: italic; color: #317581; font-size: smaller"
+            href="https://ogleearth.com/2010/11/about-costa-rica-nicaragua-their-border-and-google/">* ogle earth</a>
+        </p>
+      </section>
+      <section>
+        <h3>Paper trail</h3>
+        <img class="fragment fade" height="300px" data-src="img/paper1.png" /><img class="fragment fade" height="300px"
+          data-src="img/paper2.png" />
+        <p class="fragment fade">Include original IDs</p>
+        <p class="fragment fade">Document your sources</p>
+
+      </section>
+      <section>
+        <h3>Automate</h3>
+        <img height="250px" data-src="img/automate.gif" />
+        <pre class="fragment fade"><code data-trim data-noescape>
             if [ $theirdate -gt $ourdate ]; then
               # there is a newer file on the server, lets run the scripts
               ./run.sh $url $theirs
@@ -157,9 +226,9 @@
               echo "No newer version of "$file"; currently at "$theirs
             fi
            </code></pre>
-          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Bash is
-            your friend <b>⁂</b></span>
-        </section>
+        <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Bash is
+          your friend <b>⁂</b></span>
+      </section>
       </section>
       <section>
         <section>
@@ -224,7 +293,7 @@
           </div>
         </section>
         <section>
-          <h3>Order your data</h3>
+          <h3>Organize your data</h3>
           <pre class="fragment fade"><code data-trim data-noescape>
                   CREATE TABLE cartiqo.natural_5_6 AS
                     SELECT * FROM cartiqo.natural_5_6_uo
@@ -249,12 +318,22 @@
           <p class="fragment fade">gzip encoding</p>
           <p class="fragment fade">cache-headers</p>
           <p class="fragment fade">multiple subdomains</p>
-          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> CDN is your friend <b>⁂</b></span>
-          <div ><img height="250px" class="fade fragment" data-src="img/headers.png"/><img class="fade fragment" height="250px" data-src="img/timing.png"/></div>
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> CDN is
+            your friend <b>⁂</b></span>
+          <div><img height="250px" class="fade fragment" data-src="img/headers.png" /><img class="fade fragment"
+              height="250px" data-src="img/timing.png" /></div>
         </section>
 
       </section>
-
+      <section>
+        To wrap up:
+        1. create a sensible datamodel
+        2. map your source data to the model
+        3. use postgis for datawrangling
+        4. generate tiles with Tegola
+        5. store them on an object store (S3)
+        6. serve them through a CDN
+      </section>
       <section data-transition="fade-out">
         <h3>Pop quiz:</h3>
         <p class="fragment slide">Feature type: "barren terrain"</p>
@@ -282,19 +361,19 @@
     Reveal.initialize({
       history: true,
       dependencies: [{
-          src: 'plugin/markdown/marked.js'
-        },
-        {
-          src: 'plugin/markdown/markdown.js'
-        },
-        {
-          src: 'plugin/notes/notes.js',
-          async: true
-        },
-        {
-          src: 'plugin/highlight/highlight.js',
-          async: true
-        }
+        src: 'plugin/markdown/marked.js'
+      },
+      {
+        src: 'plugin/markdown/markdown.js'
+      },
+      {
+        src: 'plugin/notes/notes.js',
+        async: true
+      },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true
+      }
       ]
     });
   </script>
