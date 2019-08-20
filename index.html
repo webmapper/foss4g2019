@@ -126,6 +126,9 @@
         </section>
         <section data-background-image="img/kaarten.png" data-transition="fade-in fade-out">
           <h3>Lots of Beautiful maps</h3>
+          <div style="float: right;position: fixed; top: 60vh; right: 1vw; height: 10vh;"><a
+              style="font-size:20px; color:#eeeeec; text-shadow:1px 1px 3px #333333"
+              href="https://www.instagram.com/webmappery/">instagram.com/webmappery</a></span>
         </section>
         <section data-background-image="img/less.png" data-transition="fade-in fade-out">
           <div
@@ -179,160 +182,210 @@
         <section data-background-image="img/not quite.gif">
           <p class="fragment" style="font-size: 60px; color: #eeeeec;font-weight: 100">not quite</p>
         </section>
-        <section data-background-image="img/update.jpg" style="font-size: 60px; color: #eeeeec;text-shadow: 1px 1px 4px #333333; font-weight: bold">
+        <section data-background-image="img/update.jpg"
+          style="font-size: 60px; color: #eeeeec;text-shadow: 1px 1px 4px #333333; font-weight: bold">
           <div style="display: flex; justify-content: center;align-items: center">
-          <div style="text-align: right">
-         <div class=""> generating</div>
-          <div class="fragment">serving</div>
-          <div class="fragment">updating</div>
-          </div>
-          </div>
-        </section>
-        <section>
-          Tegola
-        </section>
-      </section>
-
-
-      <section>
-        <h3>Accurate</h3>
-        <div style="margin-left: -20vw;width: 90vw;"><img class="fragment fade" width="350px"
-            data-src="img/accurate1.png" /><img class="fragment fade" width="350px" data-src="img/accurate3.png" /><img
-            class="fragment fade" width="350px" data-src="img/accurate4.png" />*
-        </div>
-        <p class="fragment fade">authorative </p>
-        <p class="fragment fade">up to date</p>
-        <p class="fragment fade" style="text-align: end;"><a
-            style="font-style: italic; color: #317581; font-size: smaller"
-            href="https://ogleearth.com/2010/11/about-costa-rica-nicaragua-their-border-and-google/">* ogle earth</a>
-        </p>
-      </section>
-      <section>
-        <h3>Paper trail</h3>
-        <img class="fragment fade" height="300px" data-src="img/paper1.png" /><img class="fragment fade" height="300px"
-          data-src="img/paper2.png" />
-        <p class="fragment fade">Include original IDs</p>
-        <p class="fragment fade">Document your sources</p>
-
-      </section>
-      <section>
-        <h3>Automate</h3>
-        <img height="250px" data-src="img/automate.gif" />
-        <pre class="fragment fade"><code data-trim data-noescape>
-            if [ $theirdate -gt $ourdate ]; then
-              # there is a newer file on the server, lets run the scripts
-              ./run.sh $url $theirs
-            else
-              echo "No newer version of "$file"; currently at "$theirs
-            fi
-           </code></pre>
-        <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Bash is
-          your friend <b>⁂</b></span>
-      </section>
-      </section>
-      <section>
-        <section>
-          <h3>Simple</h3>
-          <div style="display: flex">
-            <div> <img data-src="img/simple.gif" /></div>
-            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
-              <p class="fragment fade">to use</p>
-              <p class="fragment fade">to create</p>
-              <p class="fragment fade">to maintain</p>
+            <div style="text-align: right">
+              <div class=""> generating</div>
+              <div class="fragment">serving</div>
+              <div class="fragment">updating</div>
+              <div class="fragment">tiles</div>
             </div>
           </div>
         </section>
-        <section>
-          <h3>Data wrangling</h3>
-          <div style="display: flex">
-            <div> <img height="250px" data-src="img/datawrangling.gif" /></div>
-            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
-              <p class="fragment fade">11 different sources</p>
-              <p class="fragment fade">different datamodels</p>
-              <p class="fragment fade">different update frequencies</p>
-            </div>
-          </div>
-          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> PostGIS
-            is
-            your friend <b>⁂</b></span>
-          <p class="fragment fade" style="text-decoration: line-through "><a
-              href="https://github.com/mapbox/tippecanoe">tippecanoe</a></p>
-          <p class="fragment fade" style="text-decoration: line-through "><a
-              href="https://openmaptiles.org/osm2vectortiles/">osm2vectortiles</a></p>
-        </section>
-        <section>
-          <h3>Tile management</h3>
-          <div style="display: flex">
-            <div><img height="450px" data-src="img/updates.gif" /> </div>
-            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
-              <p class="fragment fade">easy configuration</p>
-              <p class="fragment fade">(re)seeding options</p>
-              <p class="fragment fade">S3 backend</p>
-
-              <p class="fragment fade" style="text-decoration: line-through "><a
-                  href="https://github.com/mapbox/tilelive">tilelive</a></p>
-              <p class="fragment fade"><a style="text-decoration: line-through "
-                  href="https://docs.geoserver.org/latest/en/user/extensions/vectortiles/tutorial.html">geoserver</a>
-                <a style="text-decoration: line-through " href="https://t-rex.tileserver.ch/">t-rex</a></p>
-            </div>
-          </div>
-          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> Tegola
-            is your friend <b>⁂</b></span>
-        </section>
       </section>
       <section>
-        <section>
-          <h3>Fast</h3>
-          <div style="display: flex">
-            <div><img height="450px" data-src="img/fast.gif" /> </div>
-            <div style="display: flex;flex-direction: column;justify-content: center; text-align: left ">
-              <p class="fragment fade">to create</p>
-              <p class="fragment fade">to deliver</p>
-              <p class="fragment fade">to render</p>
-            </div>
-          </div>
+        <section style="font-size: 60px; color: #333333;text-shadow: 1px 1px 4px #eeeeec; ">
+          <p>pick a vector tile engine</p>
+          <p class="fragment" style="font-weight: bold">☑ postgres backend</p>
+          <span class="fragment" style="text-decoration: line-through">tippecanoe</span>
+          <span class="fragment" style="text-decoration: line-through">osm2vectortiles</span>
+          <p style="font-weight: bold" class="fragment">☑ S3 cache</p>
+          <span class="fragment" style="text-decoration: line-through">geoserver</span>
+          <span class="fragment" style="text-decoration: line-through">t-rex</span>
+          <span class="fragment" style="text-decoration: line-through">tilelive</span><br />
+          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> <A
+              href="https://tegola.io/">Tegola</A> is your friend <b>⁂</b></span>
         </section>
         <section>
-          <h3>Organize your data</h3>
+          <h3>Mapproxy inspired</h3>
+          <p class="fragment">providers - maps - caches</p>
           <pre class="fragment fade"><code data-trim data-noescape>
-                  CREATE TABLE cartiqo.natural_5_6 AS
-                    SELECT * FROM cartiqo.natural_5_6_uo
-                      ORDER BY ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10)
-                      COLLATE "C";
-
-                  CREATE INDEX cartiqo_natural_5_6_geohash
-                    ON cartiqo.natural_5_6
-                    (ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10));
-
-                  CLUSTER cartiqo.natural_5_6 USING cartiqo_natural_5_6_geohash;
-
-                  CREATE INDEX cartiqo_natural_5_6_geom
-                      ON cartiqo.natural_5_6 USING gist (geom);
+                [[providers.layers]]
+                  name = "natural56"
+                  sql = "SELECT ... ST_AsBinary(geom) AS geom
+                          FROM cartiqo.natural_5_6 WHERE geom && !BBOX!"
+          </code></pre>
+          <pre class="fragment fade"><code data-trim data-noescape>
+                [[maps.layers]]
+                  provider_layer = "cartiqo.natural56"
+                  min_zoom = 2
+                  max_zoom = 6
+                  name = "natural"
                  </code></pre>
+          <pre class="fragment fade"><code data-trim data-noescape>
+                [cache]
+                  type="s3"
+                  bucket="mybucket"
+          </code></pre>
+        </section>
+        <section>
+          <h3>Prepare for tiles</h3>
+          <pre class="fragment fade"><code data-trim data-noescape>
+                    CREATE TABLE cartiqo.natural_5_6 AS
+                      SELECT * FROM cartiqo.natural_5_6_uo
+                        ORDER BY ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10)
+                        COLLATE "C";
+
+                    CREATE INDEX cartiqo_natural_5_6_geohash
+                      ON cartiqo.natural_5_6
+                      (ST_GeoHash(ST_Transform(ST_Envelope(geom),4326),10));
+
+                    CLUSTER cartiqo.natural_5_6 USING cartiqo_natural_5_6_geohash;
+
+                    CREATE INDEX cartiqo_natural_5_6_geom
+                        ON cartiqo.natural_5_6 USING gist (geom);
+                   </code></pre>
           <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> <A
               href="http://www.paulnorman.ca/blog/2016/05/improve-your-st-geohash-sorting-with-these-three-simple-tricks/">Paul
               Norman</A> is your friend <b>⁂</b></span>
         </section>
         <section>
-          <h3>Enable web speed</h3>
-          <p class="fragment fade">gzip encoding</p>
-          <p class="fragment fade">cache-headers</p>
-          <p class="fragment fade">multiple subdomains</p>
-          <span class="fragment fade" style="border:solid 2px #317581;border-radius: 4px;padding:10px;"><b>⁂</b> CDN is
-            your friend <b>⁂</b></span>
+          <pre><code data-noescape>
+$ ./tegola cache seed --bounds "4.5,50.0,5.5,52.0" --concurrency 12
+            </code></pre>
+        </section>
+      </section>
+      <section data-transition="slide-in fade-out">
+        <section data-background-image="img/fast.gif"
+          style="font-weight: bold;font-size: 60px; color: #333333;text-shadow: 1px 1px 4px #eeeeec; ">
+          <p>Did I mention fast?</p>
+        </section>
+        <section>
+          <div style="display: flex; align-items: center">
+            <img data-src="img/slow.gif" />
+
+            <div class="fragment fade" style="margin:40px; font-size: 60px">S3 != fast</div>
+          </div>
+        </section>
+        <section>
+          <h3>Content Delivery Network (CDN)</h3>
+          <quote>A [...] CDN is a geographically distributed network of proxy servers and their data centers.
+            The goal is to provide high availability and <b>high performance</b> by distributing the service spatially
+            relative to end-users. </quote>
+          <p style="text-align: right; font-style: italic"><a
+              href="https://en.wikipedia.org/wiki/Content_delivery_network">wikipedia</a></p>
+        </section>
+        <section data-transition="slide-in fade-out">
+          <h3 style="display: flex; justify-content: center">
+            <div>🚀</div>
+            <div style="margin:0px 15px"> Enables web speed </div>
+            <div style="transform: scale(-1, 1);">🚀</div>
+          </h3>
+          <p class="fragment fade">gzip encoding <span class="fragment">- native tegola</span></p>
+          <p class="fragment fade">cache-headers <span class="fragment">- tegola config</span></p>
+          <pre class="fragment fade"><code data-trim data-noescape>
+          access_control_list="public-read"
+          cache_control="public, max-age=604800"
+          </code></pre>
+          <p class="fragment fade">multiple subdomains <span class="fragment">- CDN config</span></p>
           <div><img height="250px" class="fade fragment" data-src="img/headers.png" /><img class="fade fragment"
               height="250px" data-src="img/timing.png" /></div>
         </section>
-
       </section>
-      <section>
-        To wrap up:
-        1. create a sensible datamodel
-        2. map your source data to the model
-        3. use postgis for datawrangling
-        4. generate tiles with Tegola
-        5. store them on an object store (S3)
-        6. serve them through a CDN
+      <section data-transition="fade-in fade-out">
+        <section data-background-iframe="http://fakeupdate.net/win10u/" data-transition="fade-in fade-out">
+          <p class="fragment" style="font-size: 60px; color: #eeeeec;font-weight: 100; margin-bottom: 300px">let's talk
+            updates</p>
+        </section>
+        <section data-transition="fade-in fade-out">
+          <pre><code data-noescape>
+  $ ./tegola cache seed --bounds "4.5,50.0,5.5,52.0" --overwrite
+            </code></pre>
+        </section>
+        <section data-transition="fade-in fade-out">
+          <pre style="width:100%"><code data-noescape>
+  $ ./tegola cache seed --tile-list="list.txt" --max-zoom 15 --overwrite
+            </code></pre>
+        </section>
+        <section data-background-image="img/data.png">
+          <h1 style="color: #eeeeec; text-shadow: 2px 2px 4px #333333; ">Lots of Data</h1>
+        </section>
+        <section data-background-image="img/datawrangling.gif">
+          <h1 style="color: #eeeeec; text-shadow: 2px 2px 4px #333333; ">updating be like</h1>
+        </section>
+        <section data-background-iframe="https://nlextract.nl">
+          <h1 class="fragment"
+            style="color: #eeeeec; text-shadow: 1px 1px 8px #333333; line-height:600px;background-blend-mode: multiply; background-color: rgba(236, 114, 0, 0.8)">
+            We cheat</h1>
+        </section>
+        <section>
+          <h1 style="text-transform: lowercase;color:#333"><span style="color:#ff882a">nl</span>extract</h1>
+          <p class="fragment fade">government data, but:</p>
+          <p class="fragment fade">as postgres dumps</p>
+          <p class="fragment fade">with stable URLs</p>
+          <p class="fragment fade">& still regularly updated</p>
+          <div class="fragment" style="margin-top:60px;">Open Source!</div>
+        </section>
+        <section data-background-image="img/automate.gif">
+          <h1 style="color:#333;text-transform: none">Automate</h1>
+          <pre class="fragment fade"><code data-trim data-noescape>
+              curl --silent --head "$url" # some fancy bash follows here
+
+              if [ $theirdate -gt $ourdate ]; then
+                # there is a newer file on the server, lets run the scripts
+                ./run.sh $url $theirs
+              else
+                echo "No newer version of "$file"; currently at "$theirs
+              fi
+             </code></pre>
+          <pre class="fragment fade"><code data-trim data-noescape>
+                ----------NATURAL--------------------
+                --high
+                INSERT INTO cartiqo.natural_5_6_uo (type,  geom, originalId)
+                select 'high', st_multi(geometrie_vlak_3857), gml_id
+                from top1000.terrein where typelandgebruik = 'bos';
+
+                --bare
+                INSERT INTO cartiqo.natural_5_6_uo (type,  geom, originalId)
+                select 'bare', st_multi(geometrie_vlak_3857), gml_id
+                from top1000.terrein where typelandgebruik = 'zand';
+              </code></pre>
+        </section>
+        <section>
+          <h3>update steps</h3>
+          <ol>
+            <li class="fragment fade">check for new open data</li>
+            <li class="fragment fade">import new open data</li>
+            <li class="fragment fade">map data to datamodel</li>
+            <li class="fragment fade"><code data-trim data-noescape>seed --overwrite</code></li>
+            <li class="fragment fade">optional bust CDN</li>
+          </ol>
+        </section>
+      </section>
+      <section style="text-align: left">
+        <h3>To wrap up:</h3>
+        <p>1. create a sensible datamodel</p>
+        <p>2. map your source data to that model</p>
+        <p>3. use postgis for datawrangling</p>
+        <p>4. generate tiles with Tegola</p>
+        <p>5. store them on an object store (S3)</p>
+        <p>6. serve them through a CDN</p>
+        <p>bonus: get your own <span style="color:black !important; font-weight: bold"><a style="color:#ff882a"
+              href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">[ISO 3166-1 alpha-2]</a>extract</span> project</p>
+      </section>
+      <section data-background-image="img/questions.png">
+        <div
+          style="width:calc(100vw - 570px);height:600px; margin-left:-200px; display: flex;flex-direction: column;justify-content: space-between">
+          <img style="background: none;width:100px;align-self: flex-end" data-src="img/webmapper_logo.svg" />
+          <div style="color:#ff882a; font-size:40px; font-weight: bold;margin-left:60px;text-shadow: 1px 1px 4px #333;margin-bottom: 60px">
+            Questions?</div>
+
+          <div style="display: flex;justify-content: space-between; font-size:smaller; font-weight: bold"><a style="font-weight: bold; color: #eeeeec;text-shadow: 1px 1px 4px #333"
+              href="https://webmapper.github.io/foss4g2019/">webmapper.github.io/foss4g2019</a>
+            <a style="font-weight: bold; color: #eeeeec; text-shadow: 1px 1px 4px #333" href="https://twitter.com/stvno">@stvno</a></div>
+
+        </div>
       </section>
       <section data-transition="fade-out">
         <h3>Pop quiz:</h3>
@@ -361,19 +414,19 @@
     Reveal.initialize({
       history: true,
       dependencies: [{
-        src: 'plugin/markdown/marked.js'
-      },
-      {
-        src: 'plugin/markdown/markdown.js'
-      },
-      {
-        src: 'plugin/notes/notes.js',
-        async: true
-      },
-      {
-        src: 'plugin/highlight/highlight.js',
-        async: true
-      }
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true
+        }
       ]
     });
   </script>
